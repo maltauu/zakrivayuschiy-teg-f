@@ -1,4 +1,4 @@
-/* Здесь вы напишете основную часть стилей страницы.
+svg/* Здесь вы напишете основную часть стилей страницы.
 
 Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
 ✦ like-icon — для svg-иконки анимированного сердца
@@ -13,4 +13,328 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 102px 0 100px;
+  font-family: var(--accent-font);
+  background-color: var(--background-color);
+  border: 2px solid var(--accent-color);
+  margin: 100px auto 50px;
+  width: var(--card-width);
+}
+
+.header__logo {
+  color: var(--accent-color);
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-decoration: none;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.header__title {
+  color: var(--accent-color);
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding-bottom: 50px;
+  background-color: var(--background-color);
+}
+
+.card {
+  width: var(--card-width);
+  background-color: var(--background-color);
+  border: 2px solid var(--accent-color);
+}
+
+.card__title {
+  padding: 5px 10px;
+  font-size: 18px;
+  font-variation-settings: 'wght' var(--card-title-weight);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.card__image-container {
+  position: relative;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color: var(--accent-color);
+  font-family: var(--accent-font);
+  font-size: 14px;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  text-transform: uppercase;
+}
+
+@supports ((text-stroke: 1px var(--text-stroke-color)) or (-webkit-text-stroke: 1px var(--text-stroke-color))) {
+  .card__label {
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+    text-stroke: 1px var(--text-stroke-color);
+    text-shadow: none;
+  }
+}
+
+.card__label {
+  text-shadow: 
+    -1px -1px 0 var(--text-stroke-color),
+    1px -1px 0 var(--text-stroke-color),
+    -1px 1px 0 var(--text-stroke-color),
+    1px 1px 0 var(--text-stroke-color);
+}
+
+.card__content {
+  padding: 25px;
+}
+
+.card__text {
+  margin-bottom: 25px;
+  font-size: 18px;
+  line-height: 1.17;
+}
+
+.card__buttons {
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+
+.card__icon-button {
+  display: flex;
+  align-items: center;
+  border: 2px solid transparent;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  width: 39px;
+  height: 36px;
+  justify-content: center;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--accent-color);
+}
+
+.like-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.card__like-button {
+  position: relative;
+  width: 130px;
+  padding: 10px 0;
+  border: 2px solid var(--accent-color);
+  background: transparent;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.card__like-button:focus {
+  outline: none;
+}
+
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.card__like-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.card__like-button:hover::before {
+  transform: translateX(0);
+}
+
+.button__text {
+  position: relative;
+  color: var(--button-text-color);
+  mix-blend-mode: difference;
+  transition: color 0.5s ease-in-out;
+}
+
+.dialog {
+  padding: 0;
+  border: 2px solid var(--accent-color);
+  background: var(--background-color);
+  max-width: 357px;
+  margin: auto;
+}
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.dialog__content {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.dialog__text {
+  color: var(--accent-color);
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.dialog__button {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding: 10px 0;
+  background: var(--background-color);
+  border: 2px solid var(--accent-color);
+  font-family: var(--accent-font);
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.dialog__button:focus {
+  outline: none;
+}
+
+.dialog__button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.dialog__button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.dialog__button:hover::before {
+  transform: translateX(0);
+}
+
+.dialog__button .button__text {
+  position: relative;
+  mix-blend-mode: difference;
+  color: var(--button-text-color);
+}
+
+.save-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 20px;
+  border: 2px solid var(--accent-color);
+  background: var(--background-color);
+  font-family: var(--accent-font);
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  margin: 0 auto 50px;
+}
+
+.save-button:focus {
+  outline: none;
+}
+
+.save-button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.save-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.save-button:hover::before {
+  transform: translateX(0);
+}
+
+.save-button .button__text,
+.save-button svg {
+  position: relative;
+  mix-blend-mode: difference;
+  color: var(--button-text-color);
+}
+
+/* Убедимся, что SVG дискеты виден */
+.save-button svg {
+  width: 21px;
+  height: 21px;
+  fill: currentColor;
+}
+
+@media (width <= 375px) {
+  .header {
+    padding: 120px 0 100px;
+  }
+  
+  .card__content {
+    padding: 20px;
+  }
+  
+  .dialog__content {
+    padding: 20px;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .save-button {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
