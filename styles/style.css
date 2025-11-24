@@ -97,14 +97,6 @@ svg/* Здесь вы напишете основную часть стилей 
   }
 }
 
-.card__label {
-  text-shadow: 
-    -1px -1px 0 var(--text-stroke-color),
-    1px -1px 0 var(--text-stroke-color),
-    -1px 1px 0 var(--text-stroke-color),
-    1px 1px 0 var(--text-stroke-color);
-}
-
 .card__content {
   padding: 25px;
 }
@@ -156,14 +148,16 @@ svg/* Здесь вы напишете основную часть стилей 
 .card__icon-button {
   display: flex;
   align-items: center;
+  justify-content: center;
+  inline-size: 39px;
+  block-size: 36px;
+  background-color: transparent;
   border: 2px solid transparent;
-  background: transparent;
   padding: 0;
   cursor: pointer;
   transition: border-color 0.3s ease;
-  width: 39px;
-  height: 36px;
-  justify-content: center;
+  position: relative;
+  overflow: visible;
 }
 
 .card__icon-button:focus {
@@ -180,32 +174,9 @@ svg/* Здесь вы напишете основную часть стилей 
   height: 100%;
 }
 
-.card__icon-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  inline-size: 39px;
-  block-size: 36px;
-  background-color: transparent;
-  border: 2px solid transparent;
-  padding: 0;
-  cursor: pointer;
-  transition: border-color 0.3s ease;
-  position: relative;
-  overflow: visible;
-}
-
 .card__icon-button svg {
   display: block;
   margin: 0 auto;
-}
-
-.card__icon-button:focus {
-  outline: none;
-}
-
-.card__icon-button:focus-visible {
-  border-color: var(--accent-color);
 }
 
 .card__like-button,
