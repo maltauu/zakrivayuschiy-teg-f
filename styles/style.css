@@ -149,8 +149,8 @@ svg/* Здесь вы напишете основную часть стилей 
   display: flex;
   align-items: center;
   justify-content: center;
-  inline-size: 39px;
-  block-size: 36px;
+  inline-size: 41px;
+  block-size: 38px;
   background-color: transparent;
   border: 2px solid transparent;
   padding: 0;
@@ -170,8 +170,10 @@ svg/* Здесь вы напишете основную часть стилей 
 
 .like-icon {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 39px;
+  height: 36px;
+  transform-origin: center;
+  margin: 0 auto;
 }
 
 .card__icon-button svg {
