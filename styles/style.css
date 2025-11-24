@@ -9,10 +9,16 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font);
+  font-variation-settings: 'wght' var(----card-text-weight);
+  background-color: var(--background-color);
+  background-image: var(--background-image);
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--accent-color);
 }
 
 .header {
@@ -25,7 +31,7 @@
   border: 2px solid var(--accent-color);
   margin: 100px auto;
   max-width: var(--card-width);
-  min-height: 368px;
+  outline: none;
 }
 
 .header__logo {
@@ -47,7 +53,6 @@
   flex-direction: column;
   align-items: center;
   gap: 50px;
-  padding-bottom: 50px;
   background-color: var(--background-color);
 }
 
@@ -146,50 +151,47 @@
   filter: contrast(150%);
 }
 
-.card__icon-button {
+.card__icon-button { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  inline-size: 41px; 
+  block-size: 38px; 
+  background-color: transparent; 
+  border: 2px solid transparent; 
+  padding: 0; 
+  cursor: pointer; 
+  transition: border-color 0.3s ease; 
+  position: relative; 
+  overflow: visible; 
+} 
+ 
+.card__icon-button:focus { 
+  outline: none; 
+} 
+ 
+.card__icon-button:focus-visible { 
+  border-color: var(--accent-color); 
+} 
+ 
+.like-icon { 
+  display: block; 
+  width: 39px; 
+  height: 36px; 
+  transform-origin: center; 
+  margin: 0 auto; 
+} 
+ 
+.card__icon-button svg { 
+  display: block; 
+  margin: 0 auto; 
+} 
+ 
+.button {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  inline-size: 41px;
-  block-size: 38px;
-  background-color: transparent;
-  border: 2px solid transparent;
-  padding: 0;
-  cursor: pointer;
-  transition: border-color 0.3s ease;
-  position: relative;
-  overflow: visible;
-}
-
-.card__icon-button:focus {
-  outline: none;
-}
-
-.card__icon-button:focus-visible {
-  border-color: var(--accent-color);
-}
-
-.like-icon {
-  display: block;
-  width: 39px;
-  height: 36px;
-  transform-origin: center;
-  margin: 0 auto;
-}
-
-.card__icon-button svg {
-  display: block;
-  margin: 0 auto;
-}
-
-.card__like-button,
-.dialog__button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  inline-size: 130px;
-  block-size: 38px;
   background-color: transparent;
   border: 2px solid var(--accent-color);
   font-family: var(--accent-font);
@@ -199,31 +201,27 @@
   transition: box-shadow 0.3s ease;
 }
 
-.card__like-button:focus,
-.dialog__button:focus {
+.button:focus {
   outline: none;
 }
 
-.card__like-button:focus-visible,
-.dialog__button:focus-visible {
+.button:focus-visible {
   box-shadow: 2px 2px 0 var(--accent-color);
 }
 
-.card__like-button::before,
-.dialog__button::before {
+.button::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  inline-size: 100%;
-  block-size: 100%;
+  width: 100%;
+  height: 100%;
   background-color: var(--accent-color);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
 }
 
-.card__like-button:hover::before,
-.dialog__button:hover::before {
+.button:hover::before {
   transform: translateX(0);
 }
 
@@ -231,7 +229,36 @@
   position: relative;
   color: var(--button-text-color);
   mix-blend-mode: difference;
-  transition: color 0.5s ease-in-out;
+}
+
+.card__like-button {
+  inline-size: 130px;
+  block-size: 38px;
+}
+
+.dialog__button {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+
+.save-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+  margin: 0 auto 100px;
+  background-color: var(--background-color);
+}
+
+.save-button svg {
+  width: 21px;
+  height: 21px;
+  fill: currentColor;
+  position: relative;
+  mix-blend-mode: difference;
+  color: var(--button-text-color);
 }
 
 .dialog {
@@ -262,111 +289,17 @@
   text-transform: uppercase;
 }
 
-.dialog__button {
-  grid-column: 1 / -1;
-  width: 100%;
-  padding: 10px 0;
-  background: var(--background-color);
-  border: 2px solid var(--accent-color);
-  font-family: var(--accent-font);
-  font-size: 14px;
-  text-transform: uppercase;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow 0.3s ease;
-}
-
-.dialog__button:focus {
-  outline: none;
-}
-
-.dialog__button:focus-visible {
-  box-shadow: 2px 2px 0 var(--accent-color);
-}
-
-.dialog__button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--accent-color);
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-}
-
-.dialog__button:hover::before {
-  transform: translateX(0);
-}
-
-.dialog__button .button__text {
-  position: relative;
-  mix-blend-mode: difference;
-  color: var(--button-text-color);
-}
-
-.save-button {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 15px 20px;
-  border: 2px solid var(--accent-color);
-  background: var(--background-color);
-  font-family: var(--accent-font);
-  font-size: 14px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow 0.3s ease;
-  margin: 0 auto 50px;
-}
-
-.save-button:focus {
-  outline: none;
-}
-
-.save-button:focus-visible {
-  box-shadow: 2px 2px 0 var(--accent-color);
-}
-
-.save-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--accent-color);
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-}
-
-.save-button:hover::before {
-  transform: translateX(0);
-}
-
-.save-button .button__text,
-.save-button svg {
-  position: relative;
-  mix-blend-mode: difference;
-  color: var(--button-text-color);
-}
-
-.save-button svg {
-  width: 21px;
-  height: 21px;
-  fill: currentColor;
-}
-
 @media (width <= 375px) {
   .header {
-    padding: 120px 0 100px;
+    padding: 120px 0;
+  }
+
+  .card__label {
+    font-variation-settings: 'wght' var(----card-title-weight);
   }
   
   .card__content {
-    padding: 20px;
+    padding: 25px;
   }
   
   .dialog__content {
@@ -377,7 +310,13 @@
   
   .save-button {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+    padding: 16px 20px;
+  }
+
+  .save-button svg {
+    width: 28px;
+    height: 28px;
   }
 
   .header__logo {
