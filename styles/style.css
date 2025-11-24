@@ -19,17 +19,18 @@ svg/* Здесь вы напишете основную часть стилей 
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 102px 0 100px;
+  padding: 130px 0 122px;
   font-family: var(--accent-font);
   background-color: var(--background-color);
   border: 2px solid var(--accent-color);
-  margin: 100px auto 50px;
-  width: var(--card-width);
+  margin: 100px auto;
+  max-width: var(--card-width);
+  min-height: 368px;
 }
 
 .header__logo {
   color: var(--accent-color);
-  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  font-size: 65px;
   text-decoration: none;
   margin-bottom: 20px;
   text-transform: uppercase;
@@ -37,7 +38,7 @@ svg/* Здесь вы напишете основную часть стилей 
 
 .header__title {
   color: var(--accent-color);
-  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  font-size: 23px;
   text-transform: uppercase;
 }
 
@@ -51,15 +52,15 @@ svg/* Здесь вы напишете основную часть стилей 
 }
 
 .card {
-  width: var(--card-width);
+  max-width: var(--card-width);
   background-color: var(--background-color);
   border: 2px solid var(--accent-color);
 }
 
 .card__title {
-  padding: 5px 10px;
+  padding: 4px 10px;
   font-size: 18px;
-  font-variation-settings: 'wght' var(--card-title-weight);
+  font-weight: var(--card-title-weight);
   border-bottom: 2px solid var(--accent-color);
 }
 
@@ -111,13 +112,45 @@ svg/* Здесь вы напишете основную часть стилей 
 .card__text {
   margin-bottom: 25px;
   font-size: 18px;
-  line-height: 1.17;
+  line-height: 21px;
 }
 
 .card__buttons {
   display: flex;
   justify-content: end;
   gap: 5px;
+}
+
+.filter-blur {
+  filter: blur(5px);
+}
+
+.filter-grayscale {
+  filter: grayscale(0.8);
+}
+
+.filter-sepia {
+  filter: sepia(0.7);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(90deg);
+}
+
+.filter-saturate {
+  filter: saturate(200%);
+}
+
+.filter-invert {
+  filter: invert(0.8);
+}
+
+.filter-multiple {
+  filter: sepia(0.5) hue-rotate(30deg) saturate(1.2);
+}
+
+.filter-contrast {
+  filter: contrast(150%);
 }
 
 .card__icon-button {
@@ -147,12 +180,44 @@ svg/* Здесь вы напишете основную часть стилей 
   height: 100%;
 }
 
-.card__like-button {
+.card__icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 39px;
+  block-size: 36px;
+  background-color: transparent;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
   position: relative;
-  width: 130px;
-  padding: 10px 0;
+  overflow: visible;
+}
+
+.card__icon-button svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--accent-color);
+}
+
+.card__like-button,
+.dialog__button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 130px;
+  block-size: 38px;
+  background-color: transparent;
   border: 2px solid var(--accent-color);
-  background: transparent;
   font-family: var(--accent-font);
   font-size: 14px;
   cursor: pointer;
@@ -160,27 +225,31 @@ svg/* Здесь вы напишете основную часть стилей 
   transition: box-shadow 0.3s ease;
 }
 
-.card__like-button:focus {
+.card__like-button:focus,
+.dialog__button:focus {
   outline: none;
 }
 
-.card__like-button:focus-visible {
+.card__like-button:focus-visible,
+.dialog__button:focus-visible {
   box-shadow: 2px 2px 0 var(--accent-color);
 }
 
-.card__like-button::before {
+.card__like-button::before,
+.dialog__button::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   background-color: var(--accent-color);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
 }
 
-.card__like-button:hover::before {
+.card__like-button:hover::before,
+.dialog__button:hover::before {
   transform: translateX(0);
 }
 
@@ -311,7 +380,6 @@ svg/* Здесь вы напишете основную часть стилей 
   color: var(--button-text-color);
 }
 
-/* Убедимся, что SVG дискеты виден */
 .save-button svg {
   width: 21px;
   height: 21px;
@@ -336,5 +404,13 @@ svg/* Здесь вы напишете основную часть стилей 
   .save-button {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .header__logo {
+    font-size: 49px;
+  }
+
+  .header__title {
+    font-size: 14px;
   }
 }

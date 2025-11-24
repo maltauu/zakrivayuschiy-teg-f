@@ -1,42 +1,155 @@
-/* ===== ХОВЕР ЭФФЕКТ ===== */
 .like-icon {
   transform-origin: center;
-  cursor: pointer;
 }
 
-/* Исходное состояние - только контур */
-.like-icon .contour {
+.core {
+  fill: transparent;
+  transition: fill 0.3s 0.03s linear;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+.contour {
   fill: var(--contour-color);
+  transition: fill 0.1s linear;
 }
 
-.like-icon .main-body {
-  fill: transparent;
-}
-
-.like-icon .core {
-  fill: transparent;
-}
-
-.like-icon .sparks {
+.sparks {
   opacity: 0;
-}
-
-/* Анимация ховера */
-.like-icon:hover .main-body {
-  fill: var(--contour-color);
-  transition: fill 0.3s ease-in-out;
 }
 
 .like-icon:hover .core {
   fill: var(--contour-color);
-  transition: fill 0.3s 0.05s ease-in-out;
+  transition: fill 0.3s linear;
 }
 
-/* Плавное возвращение при уходе курсора */
-.like-icon .main-body {
-  transition: fill 0.3s 0.05s ease-in-out;
+.like-icon:hover .main-body {
+  fill: var(--contour-color);
+  transition: fill 0.3s 0.05s linear;
 }
 
-.like-icon .core {
-  transition: fill 0.3s ease-in-out;
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  animation: none;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  animation: none;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  animation: none;
+}
+
+.like-icon.is-liked {
+  animation: scale-heart 1s ease-in-out;
+}
+
+.like-icon.is-liked .sparks {
+  animation: show-sparks 1s ease-in-out;
+}
+
+@keyframes scale-heart {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.15);
+  }
+  85% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes show-sparks {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.like-icon.is-liked .core {
+  animation: fill-core 1s ease-in-out;
+}
+
+.like-icon.is-liked .main-body {
+  animation: fill-main-body 1s ease-in-out;
+}
+
+.like-icon.is-liked .contour {
+  animation: fill-contour 1s ease-in-out;
+}
+
+@keyframes fill-core {
+  0% {
+    fill: transparent;
+  }
+  15% {
+    fill: var(--animation-fill-color);
+  }
+  100% {
+    fill: var(--animation-fill-color);
+  }
+}
+
+@keyframes fill-main-body {
+  0% {
+    fill: transparent;
+  }
+  30% {
+    fill: var(--animation-fill-color);
+  }
+  100% {
+    fill: var(--animation-fill-color);
+  }
+}
+
+@keyframes fill-contour {
+  0% {
+    fill: var(--contour-color);
+  }
+  50% {
+    fill: var(--animation-fill-color);
+  }
+  100% {
+    fill: var(--animation-fill-color);
+  }
 }
