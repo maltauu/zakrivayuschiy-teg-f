@@ -151,40 +151,40 @@
   filter: contrast(150%);
 }
 
-.card__icon-button { 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  inline-size: 41px; 
-  block-size: 38px; 
-  background-color: transparent; 
-  border: 2px solid transparent; 
-  padding: 0; 
-  cursor: pointer; 
-  transition: border-color 0.3s ease; 
-  position: relative; 
-  overflow: visible; 
+.card__icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 41px;
+  block-size: 38px;
+  background-color: transparent;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  position: relative;
+  overflow: visible;
 } 
  
-.card__icon-button:focus { 
-  outline: none; 
+.card__icon-button:focus {
+  outline: none;
 } 
  
-.card__icon-button:focus-visible { 
-  border-color: var(--accent-color); 
+.card__icon-button:focus-visible {
+  border-color: var(--accent-color);
 } 
  
-.like-icon { 
-  display: block; 
-  width: 39px; 
-  height: 36px; 
-  transform-origin: center; 
-  margin: 0 auto; 
+.like-icon {
+  display: block;
+  width: 39px;
+  height: 36px;
+  transform-origin: center;
+  margin: 0 auto;
 } 
  
-.card__icon-button svg { 
-  display: block; 
-  margin: 0 auto; 
+.card__icon-button svg {
+  display: block;
+  margin: 0 auto;
 } 
  
 .button {
